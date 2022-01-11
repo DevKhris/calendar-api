@@ -15,7 +15,11 @@ class CreateRoutesTable extends Migration
     {
         Schema::create('routes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('external_id')->nullable();
+            $table->string('invitation_code');
+            $table->string('title');
+            $table->dateTime('start_timestamp')->nullable();
+            $table->dateTime('end_timestamp')->nullable();
         });
     }
 

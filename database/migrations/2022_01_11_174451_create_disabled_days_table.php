@@ -15,6 +15,9 @@ class CreateDisabledDaysTable extends Migration
     {
         Schema::create('disabled_days', function (Blueprint $table) {
             $table->id();
+            $table->integer('calendar_id')->references('id')->on('calendars');
+            $table->dateTime('day');
+            $table->integer('enabled')->default(0);
             $table->timestamps();
         });
     }
