@@ -17,7 +17,8 @@ class DayDisabled extends Model
     ];
 
     protected $table = 'disabled_days';
-    public function calendar(): BelongsTo
+
+    public function calendar()
     {
         return $this->belongsTo(Calendar::class, 'calendar_id', 'id');
     }

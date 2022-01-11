@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Users\Plan;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -56,4 +57,14 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function plan()
+    {
+        return $this->hasOne(Plan::class,'user_id', 'id');
+    }
+
+    public function reservations()
+    {
+        return $this->plan->reservations;
+    }
 }

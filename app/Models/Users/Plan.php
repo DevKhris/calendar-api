@@ -2,6 +2,7 @@
 
 namespace App\Models\Users;
 
+use App\Models\Reservation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,6 +25,7 @@ class Plan extends Model
         'created',
         'modified',
         'status_financiation',
+        'financiation',
         'language',
         'nif',
         'business_name',
@@ -48,6 +50,11 @@ class Plan extends Model
 
     public function users()
     {
-        return $this->hasMany(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class, 'user_plan_id','id');
     }
 }

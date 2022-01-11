@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Route;
+use App\Models\Users\Plan;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -32,5 +33,10 @@ class Reservation extends Model
     public function route()
     {
         return $this->hasOne(Route::class, 'id', 'route_id');
+    }
+
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class,'user_plan_id','id');
     }
 }

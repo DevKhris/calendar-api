@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Route;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Service extends Model
 {
@@ -46,4 +47,13 @@ class Service extends Model
     const CREATED_AT = 'created';
 
     const UPDATED_AT = 'modified';
+
+    protected $casts = [
+        'status_info' => 'json',
+    ];
+
+    public function route()
+    {
+        return $this->belongsTo(Route::class,'external_id', 'external_route_id');
+    }
 }

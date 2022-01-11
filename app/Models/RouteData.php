@@ -26,4 +26,61 @@ class RouteData extends Model
         'sat',
         'sun'
     ];
+
+    protected $appends = [
+        'days',
+        'available_days',
+        'unavailable_days'
+    ];
+
+    public function route()
+    {
+        return $this->belongsTo(Route::class,'route_id','id');
+    }
+
+    public function getAvailableDaysAttribute()
+    {
+        $daysAvailable = [];
+
+        foreach ($this->days as $key => $value) {
+            if ($value) {
+                $daysAvailable[$key] = $value;
+            }
+        }
+
+        return $daysAvailable;
+    }
+
+    public function getUnavailableDaysAttribute()
+    {
+        $daysUnavailable = [];
+
+        foreach ($this->days as $key => $value) {
+            if (!$value) {
+                $daysUnavailable[$key] = $value;
+            }
+        }
+
+        return $daysUnavailable;
+    }
+
+    /**
+     * Get days from model
+     *
+     * @return array
+     */
+    public function getDaysAttribute(): array
+    {
+        $days = [
+            'mon' => $this->mon,
+            'tue' => $this->tue,
+            'wed' => $this->wed,
+            'thu' => $this->thu,
+            'fri' => $this->fri,
+            'sat' => $this->sat,
+            'sun' => $this->sun
+        ];
+
+        return $days;
+    }
 }

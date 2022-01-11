@@ -18,4 +18,15 @@ class Route extends Model
         'start_timestamp',
         'end_timestamp',
     ];
+
+
+    public function data()
+    {
+        return $this->hasOne(RouteData::class,'route_id', 'id');
+    }
+
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'external_route_id','external_id');
+    }
 }
