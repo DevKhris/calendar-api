@@ -28,6 +28,9 @@ Route::group(
         Route::apiResource('calendaries', 'CalendarController')
             ->names('api.calendaries');
 
+        Route::apiResource('disabled-days', 'DayDisabledController')
+            ->names('api.disabled-days');
+
         Route::apiResource('reservations', 'ReservationController')
             ->names('api.reservations');
 

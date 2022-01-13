@@ -54,6 +54,6 @@ class Service extends Model
 
     public function route()
     {
-        return $this->belongsTo(Route::class,'external_id', 'external_route_id');
+        return $this->belongsTo(Route::class,'external_route_id','external_id');
     }
 }

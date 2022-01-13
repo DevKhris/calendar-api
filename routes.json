@@ -1,0 +1,218 @@
+[
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/calendaries",
+    "action": "App\\Http\\Controllers\\API\\V1\\CalendarController@index",
+    "middleware": []
+  },
+  {
+    "method": "POST",
+    "uri": "api/v1/calendaries",
+    "action": "App\\Http\\Controllers\\API\\V1\\CalendarController@store",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/calendaries/{calendary}",
+    "action": "App\\Http\\Controllers\\API\\V1\\CalendarController@show",
+    "middleware": []
+  },
+  {
+    "method": "PUT|PATCH",
+    "uri": "api/v1/calendaries/{calendary}",
+    "action": "App\\Http\\Controllers\\API\\V1\\CalendarController@update",
+    "middleware": []
+  },
+  {
+    "method": "DELETE",
+    "uri": "api/v1/calendaries/{calendary}",
+    "action": "App\\Http\\Controllers\\API\\V1\\CalendarController@destroy",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/disabled-days",
+    "action": "App\\Http\\Controllers\\API\\V1\\DayDisabledController@index",
+    "middleware": []
+  },
+  {
+    "method": "POST",
+    "uri": "api/v1/disabled-days",
+    "action": "App\\Http\\Controllers\\API\\V1\\DayDisabledController@store",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/disabled-days/{disabled_day}",
+    "action": "App\\Http\\Controllers\\API\\V1\\DayDisabledController@show",
+    "middleware": []
+  },
+  {
+    "method": "PUT|PATCH",
+    "uri": "api/v1/disabled-days/{disabled_day}",
+    "action": "App\\Http\\Controllers\\API\\V1\\DayDisabledController@update",
+    "middleware": []
+  },
+  {
+    "method": "DELETE",
+    "uri": "api/v1/disabled-days/{disabled_day}",
+    "action": "App\\Http\\Controllers\\API\\V1\\DayDisabledController@destroy",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/plans",
+    "action": "App\\Http\\Controllers\\API\\V1\\PlanController@index",
+    "middleware": []
+  },
+  {
+    "method": "POST",
+    "uri": "api/v1/plans",
+    "action": "App\\Http\\Controllers\\API\\V1\\PlanController@store",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/plans/{plan}",
+    "action": "App\\Http\\Controllers\\API\\V1\\PlanController@show",
+    "middleware": []
+  },
+  {
+    "method": "PUT|PATCH",
+    "uri": "api/v1/plans/{plan}",
+    "action": "App\\Http\\Controllers\\API\\V1\\PlanController@update",
+    "middleware": []
+  },
+  {
+    "method": "DELETE",
+    "uri": "api/v1/plans/{plan}",
+    "action": "App\\Http\\Controllers\\API\\V1\\PlanController@destroy",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/reservations",
+    "action": "App\\Http\\Controllers\\API\\V1\\ReservationController@index",
+    "middleware": []
+  },
+  {
+    "method": "POST",
+    "uri": "api/v1/reservations",
+    "action": "App\\Http\\Controllers\\API\\V1\\ReservationController@store",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/reservations/{reservation}",
+    "action": "App\\Http\\Controllers\\API\\V1\\ReservationController@show",
+    "middleware": []
+  },
+  {
+    "method": "PUT|PATCH",
+    "uri": "api/v1/reservations/{reservation}",
+    "action": "App\\Http\\Controllers\\API\\V1\\ReservationController@update",
+    "middleware": []
+  },
+  {
+    "method": "DELETE",
+    "uri": "api/v1/reservations/{reservation}",
+    "action": "App\\Http\\Controllers\\API\\V1\\ReservationController@destroy",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/routes",
+    "action": "App\\Http\\Controllers\\API\\V1\\RouteController@index",
+    "middleware": []
+  },
+  {
+    "method": "POST",
+    "uri": "api/v1/routes",
+    "action": "App\\Http\\Controllers\\API\\V1\\RouteController@store",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/routes/{route}",
+    "action": "App\\Http\\Controllers\\API\\V1\\RouteController@show",
+    "middleware": []
+  },
+  {
+    "method": "PUT|PATCH",
+    "uri": "api/v1/routes/{route}",
+    "action": "App\\Http\\Controllers\\API\\V1\\RouteController@update",
+    "middleware": []
+  },
+  {
+    "method": "DELETE",
+    "uri": "api/v1/routes/{route}",
+    "action": "App\\Http\\Controllers\\API\\V1\\RouteController@destroy",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/services",
+    "action": "App\\Http\\Controllers\\API\\V1\\ServiceController@index",
+    "middleware": []
+  },
+  {
+    "method": "POST",
+    "uri": "api/v1/services",
+    "action": "App\\Http\\Controllers\\API\\V1\\ServiceController@store",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/services/{service}",
+    "action": "App\\Http\\Controllers\\API\\V1\\ServiceController@show",
+    "middleware": []
+  },
+  {
+    "method": "PUT|PATCH",
+    "uri": "api/v1/services/{service}",
+    "action": "App\\Http\\Controllers\\API\\V1\\ServiceController@update",
+    "middleware": []
+  },
+  {
+    "method": "DELETE",
+    "uri": "api/v1/services/{service}",
+    "action": "App\\Http\\Controllers\\API\\V1\\ServiceController@destroy",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/users",
+    "action": "App\\Http\\Controllers\\API\\V1\\UserController@index",
+    "middleware": []
+  },
+  {
+    "method": "POST",
+    "uri": "api/v1/users",
+    "action": "App\\Http\\Controllers\\API\\V1\\UserController@store",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "api/v1/users/{user}",
+    "action": "App\\Http\\Controllers\\API\\V1\\UserController@show",
+    "middleware": []
+  },
+  {
+    "method": "PUT|PATCH",
+    "uri": "api/v1/users/{user}",
+    "action": "App\\Http\\Controllers\\API\\V1\\UserController@update",
+    "middleware": []
+  },
+  {
+    "method": "DELETE",
+    "uri": "api/v1/users/{user}",
+    "action": "App\\Http\\Controllers\\API\\V1\\UserController@destroy",
+    "middleware": []
+  },
+  {
+    "method": "GET|HEAD",
+    "uri": "sanctum/csrf-cookie",
+    "action": "Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController@show",
+    "middleware": []
+  }
+]

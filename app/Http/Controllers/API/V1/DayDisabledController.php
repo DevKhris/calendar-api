@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Http\Controllers\Controller;
-use App\Models\Calendar;
 use Illuminate\Http\Request;
+use App\Models\Calendar\DayDisabled;
 
-class CalendarController extends Controller
+class DayDisabledController extends Controller
 {
-    protected $calendar;
+    protected $daydisabled;
 
-    public function __construct(Calendar $calendar)
+    public function __construct(DayDisabled $daydisabled)
     {
-        $this->calendar = $calendar;
+        $this->daydisabled = $daydisabled;
     }
 
     /**
@@ -22,11 +22,7 @@ class CalendarController extends Controller
      */
     public function index()
     {
-        return response()->json(
-            $this->calendar
-            ->with(['disableddays'])
-            ->get()
-        );
+        return response()->json($this->daydisabled->with(['calendar'])->get());
     }
 
     /**
@@ -37,7 +33,7 @@ class CalendarController extends Controller
      */
     public function store(Request $request)
     {
-        $result = $this->calendar($request->all());
+        $result = $this->daydisabled($request->all());
         return response()->json($result);
     }
 
@@ -50,11 +46,7 @@ class CalendarController extends Controller
      */
     public function show($id)
     {
-        return response()->json(
-            $this->calendar->with(['disableddays'])
-            ->where('id', $id)
-            ->firstOrFail()
-        );
+        return response()->json($this->daydisabled->with(['calendar'])->where('id', $id)->firstOrFail());
     }
 
     /**
@@ -66,8 +58,8 @@ class CalendarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $calendar = $this->calendar->where('id', $id)->firstOrFail();
-        $result = $calendar->update($request->all());
+        $daydisabled = $this->daydisabled->where('id', $id)->firstOrFail();
+        $result = $daydisabled->update($request->all());
         return response()->json($result);
     }
 
@@ -79,7 +71,7 @@ class CalendarController extends Controller
      */
     public function destroy($id)
     {
-        $result = $this->calendar->destroy($id);
+        $result = $this->daydisabled->destroy($id);
         return response()->json($result);
     }
 }

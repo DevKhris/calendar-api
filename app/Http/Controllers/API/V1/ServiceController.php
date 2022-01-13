@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+    protected $service;
+
+    public function __construct(Service $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json($this->service->with(['route'])->get());
     }
 
     /**
@@ -26,40 +33,45 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $result = $this->service($request->all());
+        return response()->json($result);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Service  $service
+     * @param  int  $id
      * @return \Illuminate\Http\Response
+     *
      */
-    public function show(Service $service)
+    public function show($id)
     {
-        //
+        return response()->json($this->service->with(['route'])->where('id', $id)->firstOrFail());
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Service  $service
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, $id)
     {
-        //
+        $service = $this->service->where('id', $id)->firstOrFail();
+        $result = $service->update($request->all());
+        return response()->json($result);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Service  $service
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
-        //
+        $result = $this->service->destroy($id);
+        return response()->json($result);
     }
 }

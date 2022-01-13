@@ -5,6 +5,7 @@ namespace App\Models\Users;
 use App\Models\Reservation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Plan extends Model
 {

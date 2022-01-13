@@ -63,8 +63,4 @@ class User extends Authenticatable
         return $this->hasOne(Plan::class,'user_id', 'id');
     }
 
-    public function reservations()
-    {
-        return $this->plan->reservations;
-    }
 }

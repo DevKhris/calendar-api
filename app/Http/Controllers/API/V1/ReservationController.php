@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
+    protected $reservation;
+
+    public function __construct(Reservation $reservation)
+    {
+        $this->reservation = $reservation;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,7 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json($this->reservation->with(['route.data', 'plan.users'])->get());
     }
 
     /**
@@ -26,40 +33,45 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $result = $this->reservation($request->all());
+        return response()->json($result);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Reservation  $reservation
+     * @param  int  $id
      * @return \Illuminate\Http\Response
+     *
      */
-    public function show(Reservation $reservation)
+    public function show($id)
     {
-        //
+        return response()->json($this->reservation->with(['route.data','plan.users'])->where('id', $id)->firstOrFail());
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Reservation  $reservation
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reservation $reservation)
+    public function update(Request $request, $id)
     {
-        //
+        $reservation = $this->reservation->where('id', $id)->firstOrFail();
+        $result = $reservation->update($request->all());
+        return response()->json($result);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Reservation  $reservation
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reservation $reservation)
+    public function destroy($id)
     {
-        //
+        $result = $this->reservation->destroy($id);
+        return response()->json($result);
     }
 }
