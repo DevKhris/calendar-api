@@ -5,7 +5,7 @@ Prueba Tecnica para AmobaSoftware
 
 1. Clonar el repositorio
 ```bash
-git clone
+git clone https://github.com/DevKhris/calendar-api.git
 ```
 2. Instalar el proyecto y sus dependencias
 ```bash
@@ -39,4 +39,4 @@ php artisan serve
 ```
 7. Revisar el archivo routes.json para las distintas rutas de la api
 
--- 2021 -- DevKhris
+-- 2022 -- DevKhris
